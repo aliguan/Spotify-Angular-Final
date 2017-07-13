@@ -13,6 +13,7 @@ export class SpotifyLoginComponent implements OnInit {
   ngOnInit() {
       this.spotifyauth.getAuthenticatedUserInfo()
         .subscribe( (user) => this.user = user );
+        console.log(this.user);
   }
 
 }
