@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { SpotifyAuthService } from '../services/spotify-auth.service'
+import { SpotifyAuthService } from '../services/spotify-auth.service';
+
 
 @Component({
   selector: 'app-spotify-login',
@@ -7,13 +8,19 @@ import { SpotifyAuthService } from '../services/spotify-auth.service'
   styleUrls: ['./spotify-login.component.css']
 })
 export class SpotifyLoginComponent implements OnInit {
-    user: Object = {};
+  loginUrl: string;
   constructor(private spotifyauth: SpotifyAuthService) { }
 
   ngOnInit() {
-      this.spotifyauth.getAuthenticatedUserInfo()
-        .subscribe( (user) => this.user = user );
-        console.log(this.user);
-  }
 
+  }
+  getLoginString() {
+
+    this.spotifyauth.login().subscribe( (res) => { if (res) {
+        this.loginUrl = res;
+        window.location.href = this.loginUrl;
+    }} );
+
+  }
 }
+// https://accounts.spotify.com/authorize?'

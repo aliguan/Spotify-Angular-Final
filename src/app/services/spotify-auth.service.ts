@@ -8,8 +8,7 @@ export class SpotifyAuthService {
 
   constructor(private http: Http) { }
 
-  getAuthenticatedUserInfo() {
-      return this.http.get(`${this.BASE_URL}/hi`)
-        .map(res  => res.json())
+ login() {
+      return this.http.get(`${this.BASE_URL}/login`).map(res => res.json());
   }
 }
