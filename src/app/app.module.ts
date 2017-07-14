@@ -4,23 +4,25 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
-
 import { SpotifyAuthService } from './services/spotify-auth.service'
-
 
 import { AppComponent } from './app.component';
 import { SpotifyLoginComponent } from './spotify-login/spotify-login.component';
+import { ProfileViewComponent } from './profile-view/profile-view.component';
+import { AppRoutingModule } from './app.routing.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SpotifyLoginComponent
+    SpotifyLoginComponent,
+    ProfileViewComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
     FormsModule,
-    RouterModule
+    RouterModule,
+    AppRoutingModule,
   ],
   providers: [SpotifyAuthService],
   bootstrap: [AppComponent]
