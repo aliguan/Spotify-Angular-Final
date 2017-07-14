@@ -11,4 +11,7 @@ export class SpotifyAuthService {
  login() {
       return this.http.get(`${this.BASE_URL}/login`).map(res => res.json());
   }
+  callback(code, state) {
+      return this.http.get(`${this.BASE_URL}/callback`, {params: {code: code, state: state}}).map(res => res.json());
+  }
 }
