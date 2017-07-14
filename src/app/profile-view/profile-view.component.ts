@@ -9,8 +9,6 @@ import { Headers } from '@angular/http';
 })
 export class ProfileViewComponent implements OnInit {
 
- private tokens;
-
   constructor( private spotifyauth: SpotifyAuthService,
       private activatedRoute: ActivatedRoute) { }
 
@@ -21,10 +19,8 @@ export class ProfileViewComponent implements OnInit {
           const code = queryParams['code'];
           const state = queryParams['state'];
           this.spotifyauth.callback(code, state)
-            // .subscribe(res => { this.tokens = res;
-            //     this.spotifyauth.getUser(this.tokens.access_token)
-            //         .subscribe( response => console.log(response))
-            // });
+            .subscribe()
+
         })
     }
 

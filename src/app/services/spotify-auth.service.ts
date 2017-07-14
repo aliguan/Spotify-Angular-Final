@@ -9,7 +9,8 @@ export class SpotifyAuthService {
 
   BASE_URL: String = 'http://localhost:8888';
 
-  private tokens;
+  private tokens: Object;
+
   constructor(private http: Http) {
 
   }
@@ -18,11 +19,13 @@ export class SpotifyAuthService {
       return this.http.get(`${this.BASE_URL}/login`)
         .map(res => res.json());
   }
+
   callback(code, state) {
-    return this.http.get(`${this.BASE_URL}/callback`, {params: {code: code, state: state}})
+    this.http.get(`${this.BASE_URL}/callback`, {params: {code: code, state: state}})
         .toPromise()
-        .then(res => { this.tokens = res.json() } );
+        .then( res => { this.tokens = res.json() } );
   }
+
 
   getUser(token) {
       console.log(token);
@@ -32,6 +35,5 @@ export class SpotifyAuthService {
     //   return this.http.get( 'https://api.spotify.com/v1/me', { headers: headers })
     //     .map(res => res.json());
   }
-
 
 }
