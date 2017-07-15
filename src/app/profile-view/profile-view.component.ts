@@ -9,18 +9,21 @@ import { Headers } from '@angular/http';
 })
 export class ProfileViewComponent implements OnInit {
 
-  constructor( private spotifyauth: SpotifyAuthService,
-      private activatedRoute: ActivatedRoute) { }
 
+
+  constructor( private spotifyauth: SpotifyAuthService,
+      private activatedRoute: ActivatedRoute,
+      private router: Router) { }
 
   ngOnInit() {
       this.activatedRoute.queryParams
-      .subscribe((queryParams) => {
+        .subscribe((queryParams) => {
           const code = queryParams['code'];
           const state = queryParams['state'];
           this.spotifyauth.callback(code, state)
-            .subscribe()
-
+            .subscribe(res => { if (res === true) {
+                this.router.navigate(['']);
+            }});
         })
     }
 

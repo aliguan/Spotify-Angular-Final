@@ -9,10 +9,11 @@ export class SpotifyAuthService {
 
   BASE_URL: String = 'http://localhost:8888';
 
-  private tokens: Object;
+  public tokens;
 
   constructor(private http: Http) {
-
+      const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+      this.tokens = currentUser;
   }
 
  login() {
@@ -21,9 +22,16 @@ export class SpotifyAuthService {
   }
 
   callback(code, state) {
-    this.http.get(`${this.BASE_URL}/callback`, {params: {code: code, state: state}})
-        .toPromise()
-        .then( res => { this.tokens = res.json() } );
+    return this.http.get(`${this.BASE_URL}/callback`, {params: {code: code, state: state}})
+        .map( (res) => {
+            this.tokens = res.json();
+            if (this.tokens) {
+                localStorage.setItem('currentUser',  JSON.stringify(this.tokens) );
+                return true;
+            } else {
+                return false;
+            }
+        });
   }
 
 
