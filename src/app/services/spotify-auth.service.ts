@@ -38,9 +38,21 @@ export class SpotifyAuthService {
   getUser(token) {
       const headers = new Headers();
       headers.append('Authorization', 'Bearer ' + token);
-
       return this.http.get( 'https://api.spotify.com/v1/me', { headers: headers })
         .map(res => res.json());
   }
+
+  getSavedTracks(token) {
+    const headers = new Headers();
+    headers.append('Authorization', 'Bearer ' + token);
+    return this.http.get( 'https://api.spotify.com/v1/me/tracks?offset=0&limit=50', { headers: headers })
+      .map(res => res.json());
+  }
+
+  logout(): void {
+       // clear token remove user from local storage to log user out
+       this.tokens = null;
+       localStorage.removeItem('currentUser');
+   }
 
 }

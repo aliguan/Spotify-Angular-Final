@@ -1,2 +1,7 @@
-hi
-{{ user?.display_name }}
+<h1>Hi {{ user?.display_name }}</h1>
+
+<div *ngIf="tracks">
+<ul *ngFor="let track of tracks.items">
+    <li>{{ track.track.artists[0].name }}</li>
+</ul>
+<div>

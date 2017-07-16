@@ -11,6 +11,8 @@ import { Headers } from '@angular/http';
 export class ProfileViewComponent implements OnInit {
   private tokens;
   public user;
+  public tracks;
+
   constructor( private spotifyauth: SpotifyAuthService,
       private activatedRoute: ActivatedRoute,
       private router: Router) { }
@@ -21,6 +23,7 @@ export class ProfileViewComponent implements OnInit {
       if (this.tokens) {
           this.spotifyauth.getUser(this.tokens.access_token).subscribe(res => this.user = res);
       }
+      this.spotifyauth.getSavedTracks(this.tokens.access_token).subscribe(res => { this.tracks = res; console.log(res)} );
   }
 
 }
