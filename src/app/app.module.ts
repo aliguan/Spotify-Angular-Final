@@ -10,12 +10,14 @@ import { AppComponent } from './app.component';
 import { SpotifyLoginComponent } from './spotify-login/spotify-login.component';
 import { ProfileViewComponent } from './profile-view/profile-view.component';
 import { AppRoutingModule } from './app.routing.module';
+import { CallbackComponent } from './callback/callback.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SpotifyLoginComponent,
-    ProfileViewComponent
+    ProfileViewComponent,
+    CallbackComponent
   ],
   imports: [
     BrowserModule,

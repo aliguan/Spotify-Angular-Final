@@ -36,12 +36,11 @@ export class SpotifyAuthService {
 
 
   getUser(token) {
-      console.log(token);
       const headers = new Headers();
-    //   headers.append('Authorization', 'Bearer' + token);
-    //   console.log(headers);
-    //   return this.http.get( 'https://api.spotify.com/v1/me', { headers: headers })
-    //     .map(res => res.json());
+      headers.append('Authorization', 'Bearer ' + token);
+
+      return this.http.get( 'https://api.spotify.com/v1/me', { headers: headers })
+        .map(res => res.json());
   }
 
 }
