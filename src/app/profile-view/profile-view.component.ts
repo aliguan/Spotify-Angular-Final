@@ -21,9 +21,16 @@ export class ProfileViewComponent implements OnInit {
   ngOnInit() {
       this.tokens = JSON.parse(localStorage.getItem('currentUser'));
       if (this.tokens) {
-          this.spotifyauth.getUser(this.tokens.access_token).subscribe(res => this.user = res);
+          this.spotifyauth.getUser(this.tokens.access_token)
+            .subscribe(res => {
+                this.user = res;
+                this.spotifyauth.createUser(res);
+            } );
+
+          this.spotifyauth.getSavedTracks(this.tokens.access_token)
+            .subscribe(res => { this.tracks = res; console.log(res)} );
       }
-      this.spotifyauth.getSavedTracks(this.tokens.access_token).subscribe(res => { this.tracks = res; console.log(res)} );
+
   }
 
 }

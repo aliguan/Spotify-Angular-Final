@@ -46,9 +46,13 @@ export class SpotifyAuthService {
     const headers = new Headers();
     headers.append('Authorization', 'Bearer ' + token);
     return this.http.get( 'https://api.spotify.com/v1/me/tracks?offset=0&limit=50', { headers: headers })
-      .map(res => res.json());
+      .map(res => res.json() );
   }
-  // find a way to compare user daya bases
+
+  createUser(userInfo) {
+      console.log(userInfo);
+      this.http.post(`${this.BASE_URL}/newUser`, userInfo).subscribe(res => console.log(res));
+  }
 
   logout(): void {
        // clear token remove user from local storage to log user out
