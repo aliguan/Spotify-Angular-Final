@@ -33,4 +33,9 @@ export class ProfileViewComponent implements OnInit {
 
   }
 
+  logOut() {
+      this.spotifyauth.logout();
+      this.router.navigate(['/login']);
+  }
+
 }
