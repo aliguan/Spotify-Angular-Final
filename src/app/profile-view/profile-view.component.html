@@ -3,7 +3,7 @@
 <button *ngIf="user" (click)="logOut()">Log Out</button>
 
 <div *ngIf="tracks">
-<ul *ngFor="let track of tracks.items">
+<ul *ngFor="let track of tracks">
     <li>{{ track.track.artists[0].name }}</li>
 </ul>
 <div>

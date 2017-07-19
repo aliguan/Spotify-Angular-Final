@@ -28,9 +28,22 @@ export class ProfileViewComponent implements OnInit {
             } );
 
           this.spotifyauth.getSavedTracks(this.tokens.access_token)
-            .subscribe(res => { this.tracks = res; console.log(res)} );
-      }
+            .subscribe(res => {
+                    const arrayofArtists = [];
 
+                    this.tracks = res.items;
+                    this.tracks.forEach((track) => {
+                        arrayofArtists.push(track.track.artists[0].name);
+
+                    });
+                    const trackObject = {
+                        userEmail: this.user.email,
+                        artistNames: arrayofArtists,
+                    }
+                    this.spotifyauth.pushTracks(trackObject);
+                }
+            );
+      }
   }
 
   logOut() {

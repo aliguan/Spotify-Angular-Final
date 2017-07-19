@@ -49,6 +49,11 @@ export class SpotifyAuthService {
       .map(res => res.json() );
   }
 
+  pushTracks(trackObject) {
+      console.log(trackObject);
+      this.http.post(`${this.BASE_URL}/userTracks`, trackObject).subscribe();
+  }
+
   createUser(userInfo) {
       console.log(userInfo);
       this.http.post(`${this.BASE_URL}/newUser`, userInfo).subscribe(res => console.log(res));
@@ -59,5 +64,6 @@ export class SpotifyAuthService {
        this.tokens = null;
        localStorage.removeItem('currentUser');
    }
+
 
 }
