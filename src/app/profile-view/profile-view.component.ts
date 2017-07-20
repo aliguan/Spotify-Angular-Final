@@ -14,7 +14,8 @@ export class ProfileViewComponent implements OnInit {
   private tokens;
   public user;
   public tracks;
-  public location;
+  public city;
+  public state;
   public google: any;
 
 
@@ -68,11 +69,25 @@ export class ProfileViewComponent implements OnInit {
 
               geocoder.geocode( { 'location': request },
                  (results, status) => {
-                   if ( status === google.maps.GeocoderStatus.OK ) {
-                       this.location = `${ results[1].address_components[2].long_name}`+ ', ' +  `${ results[1].address_components[4].long_name }`;
-                   } else {
-                       window.alert('Geocoder failed due to: ' + status);
-                   }
+
+                    if ( status === google.maps.GeocoderStatus.OK ) {
+                        if (results[0]) {
+                            console.log( results[0] );
+                            const component = results[0].address_components;
+                            for ( let i = 0; i < component.length; i++ ) {
+                                if (component[i].types[0] === 'locality') {
+                                    this.city = component[i].short_name;
+                                }
+                                if (component[i].types[0] === 'administrative_area_level_1') {
+                                    this.state = component[i].short_name;
+                                }
+                            }
+                        } else {
+                            console.log( 'No reverse geocode results.' );
+                        }
+                    } else {
+                        window.alert('Geocoder failed due to: ' + status);
+                    }
                });
           });
 

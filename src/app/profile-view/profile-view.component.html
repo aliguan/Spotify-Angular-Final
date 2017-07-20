@@ -1,5 +1,5 @@
 <h1>Hi {{ user?.display_name }}</h1>
-<p>Location: {{ location }}</p>
+<p>Location: {{ city }}<span *ngIf="city">,</span> {{ state }}</p>
 
 <button *ngIf="user" (click)="logOut()">Log Out</button>
 

@@ -56,7 +56,7 @@ export class SpotifyAuthService {
 
   createUser(userInfo) {
       console.log(userInfo);
-      this.http.post(`${this.BASE_URL}/newUser`, userInfo).subscribe(res => console.log(res));
+      this.http.post(`${this.BASE_URL}/newUser`, userInfo).subscribe();
   }
 
   logout(): void {
