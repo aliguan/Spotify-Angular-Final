@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
+import { } from '@types/googlemaps';
 
 import { SpotifyAuthService } from './services/spotify-auth.service'
 

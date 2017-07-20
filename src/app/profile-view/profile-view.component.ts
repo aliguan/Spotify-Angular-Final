@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { SpotifyAuthService } from '../services/spotify-auth.service';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Headers } from '@angular/http';
+import { } from '@types/googlemaps';
+
 
 @Component({
   selector: 'app-profile-view',
@@ -13,6 +15,8 @@ export class ProfileViewComponent implements OnInit {
   public user;
   public tracks;
   public location;
+  public google: any;
+
 
   constructor( private spotifyauth: SpotifyAuthService,
       private activatedRoute: ActivatedRoute,
@@ -20,6 +24,7 @@ export class ProfileViewComponent implements OnInit {
 
 
   ngOnInit() {
+
       // Get User Tokens
       this.tokens = JSON.parse(localStorage.getItem('currentUser'));
 
@@ -53,16 +58,27 @@ export class ProfileViewComponent implements OnInit {
   }
 
   getUserLoc() {
+      const geocoder = new google.maps.Geocoder();
       if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition( pos => {
-              this.location = {
+              const request = {
                   lat: pos.coords.latitude,
-                  long: pos.coords.longitude
+                  lng: pos.coords.longitude
               }
-              console.log(this.location);
+
+              geocoder.geocode( { 'location': request },
+                 (results, status) => {
+                   if ( status === google.maps.GeocoderStatus.OK ) {
+                       this.location = `${ results[1].address_components[2].long_name}`+ ', ' +  `${ results[1].address_components[4].long_name }`
+                   } else {
+                       window.alert('Geocoder failed due to: ' + status);
+                   }
+               });
           });
-      }
-  }
+
+
+        }
+    };
 
   logOut() {
       this.spotifyauth.logout();
