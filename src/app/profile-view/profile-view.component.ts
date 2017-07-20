@@ -69,7 +69,7 @@ export class ProfileViewComponent implements OnInit {
               geocoder.geocode( { 'location': request },
                  (results, status) => {
                    if ( status === google.maps.GeocoderStatus.OK ) {
-                       this.location = `${ results[1].address_components[2].long_name}`+ ', ' +  `${ results[1].address_components[4].long_name }`
+                       this.location = `${ results[1].address_components[2].long_name}`+ ', ' +  `${ results[1].address_components[4].long_name }`;
                    } else {
                        window.alert('Geocoder failed due to: ' + status);
                    }
