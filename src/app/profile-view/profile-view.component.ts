@@ -12,6 +12,7 @@ export class ProfileViewComponent implements OnInit {
   private tokens;
   public user;
   public tracks;
+  public location;
 
   constructor( private spotifyauth: SpotifyAuthService,
       private activatedRoute: ActivatedRoute,
@@ -19,7 +20,10 @@ export class ProfileViewComponent implements OnInit {
 
 
   ngOnInit() {
+      // Get User Tokens
       this.tokens = JSON.parse(localStorage.getItem('currentUser'));
+
+      // If there are tokens create user and get their saved Tracks
       if (this.tokens) {
           this.spotifyauth.getUser(this.tokens.access_token)
             .subscribe(res => {
@@ -43,6 +47,20 @@ export class ProfileViewComponent implements OnInit {
                     this.spotifyauth.pushTracks(trackObject);
                 }
             );
+      }
+
+      this.getUserLoc();
+  }
+
+  getUserLoc() {
+      if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition( pos => {
+              this.location = {
+                  lat: pos.coords.latitude,
+                  long: pos.coords.longitude
+              }
+              console.log(this.location);
+          });
       }
   }
 
