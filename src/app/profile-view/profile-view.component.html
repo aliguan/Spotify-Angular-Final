@@ -1,4 +1,4 @@
-<div *ngIf="user">
+<div *ngIf="user && tracks">
 <h1>Hi {{ user?.display_name }}</h1>
 
 <button (click)="getUserLoc()">Find My Location</button>
