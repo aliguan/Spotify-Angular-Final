@@ -73,7 +73,13 @@ export class ProfileViewComponent implements OnInit {
                   coordinates: request
               }
 
+              const nearMeObject = {
+                  latitude: request.lat,
+                  longitude: request.lng
+              }
+
               this.saveLoc(locationObject);
+              this.usersNearMe(nearMeObject);
 
               geocoder.geocode( { 'location': request },
                  (results, status) => {
@@ -106,6 +112,9 @@ export class ProfileViewComponent implements OnInit {
     this.locateuser.saveLoc(request);
  }
 
+ usersNearMe(nearMeObject) {
+     this.locateuser.usersNearMe(nearMeObject);
+ }
 
   logOut() {
       this.spotifyauth.logout();
