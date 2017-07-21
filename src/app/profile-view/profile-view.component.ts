@@ -12,11 +12,12 @@ import { } from '@types/googlemaps';
 })
 export class ProfileViewComponent implements OnInit {
   private tokens;
-  public user;
-  public tracks;
-  public city;
-  public state;
-  public google: any;
+  private user;
+  private tracks;
+  private city;
+  private state;
+  private google: any;
+  private location;
 
 
   constructor( private spotifyauth: SpotifyAuthService,
@@ -25,10 +26,12 @@ export class ProfileViewComponent implements OnInit {
 
 
   ngOnInit() {
-
       // Get User Tokens
       this.tokens = JSON.parse(localStorage.getItem('currentUser'));
+      this.createUserandTracks();
+  }
 
+  createUserandTracks() {
       // If there are tokens create user and get their saved Tracks
       if (this.tokens) {
           this.spotifyauth.getUser(this.tokens.access_token)
@@ -54,8 +57,6 @@ export class ProfileViewComponent implements OnInit {
                 }
             );
       }
-
-      this.getUserLoc();
   }
 
   getUserLoc() {
@@ -66,6 +67,7 @@ export class ProfileViewComponent implements OnInit {
                   lat: pos.coords.latitude,
                   lng: pos.coords.longitude
               }
+              this.location = request;
 
               geocoder.geocode( { 'location': request },
                  (results, status) => {
@@ -90,10 +92,12 @@ export class ProfileViewComponent implements OnInit {
                     }
                });
           });
-
-
         }
     };
+
+
+ 
+
 
   logOut() {
       this.spotifyauth.logout();

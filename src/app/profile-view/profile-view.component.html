@@ -1,10 +1,17 @@
+<div *ngIf="user">
 <h1>Hi {{ user?.display_name }}</h1>
-<p>Location: {{ city }}<span *ngIf="city">,</span> {{ state }}</p>
 
-<button *ngIf="user" (click)="logOut()">Log Out</button>
+<button (click)="getUserLoc()">Find My Location</button>
+
+<div *ngIf="city">
+    <p>Location: {{ city }} , {{ state }}</p>
+</div>
+
+<button (click)="logOut()">Log Out</button>
 
 <div *ngIf="tracks">
 <ul *ngFor="let track of tracks">
     <li>{{ track.track.artists[0].name }}</li>
 </ul>
 <div>
+</div>
