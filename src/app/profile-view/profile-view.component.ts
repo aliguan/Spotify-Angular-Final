@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SpotifyAuthService } from '../services/spotify-auth.service';
+import { LocatingUserService } from '../services/locating-user.service';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Headers } from '@angular/http';
 import { } from '@types/googlemaps';
@@ -17,12 +18,12 @@ export class ProfileViewComponent implements OnInit {
   private city;
   private state;
   private google: any;
-  private location;
 
 
   constructor( private spotifyauth: SpotifyAuthService,
       private activatedRoute: ActivatedRoute,
-      private router: Router) { }
+      private router: Router,
+      private locateuser: LocatingUserService) { }
 
 
   ngOnInit() {
@@ -67,7 +68,12 @@ export class ProfileViewComponent implements OnInit {
                   lat: pos.coords.latitude,
                   lng: pos.coords.longitude
               }
-              this.location = request;
+              const locationObject = {
+                  userEmail: this.user.email,
+                  coordinates: request
+              }
+
+              this.saveLoc(locationObject);
 
               geocoder.geocode( { 'location': request },
                  (results, status) => {
@@ -96,7 +102,9 @@ export class ProfileViewComponent implements OnInit {
     };
 
 
- 
+ saveLoc(request) {
+    this.locateuser.saveLoc(request);
+ }
 
 
   logOut() {

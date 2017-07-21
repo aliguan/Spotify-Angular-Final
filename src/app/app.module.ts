@@ -5,7 +5,8 @@ import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { } from '@types/googlemaps';
 
-import { SpotifyAuthService } from './services/spotify-auth.service'
+import { SpotifyAuthService } from './services/spotify-auth.service';
+import { LocatingUserService } from './services/locating-user.service';
 
 import { AppComponent } from './app.component';
 import { SpotifyLoginComponent } from './spotify-login/spotify-login.component';
@@ -27,7 +28,7 @@ import { CallbackComponent } from './callback/callback.component';
     RouterModule,
     AppRoutingModule,
   ],
-  providers: [SpotifyAuthService],
+  providers: [SpotifyAuthService, LocatingUserService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
