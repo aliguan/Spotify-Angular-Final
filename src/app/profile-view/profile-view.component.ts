@@ -18,7 +18,7 @@ export class ProfileViewComponent implements OnInit {
   private city;
   private state;
   private google: any;
-
+  private matchedUsers;
 
   constructor( private spotifyauth: SpotifyAuthService,
       private activatedRoute: ActivatedRoute,
@@ -64,23 +64,27 @@ export class ProfileViewComponent implements OnInit {
       const geocoder = new google.maps.Geocoder();
       if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition( pos => {
+              // request to geocoder for Google maps
+
               const request = {
                   lat: pos.coords.latitude,
                   lng: pos.coords.longitude
               }
-              const locationObject = {
-                  userEmail: this.user.email,
-                  coordinates: request
-              }
 
+              // Request sent to use in GeoLib calculations
               const nearMeObject = {
                   latitude: request.lat,
                   longitude: request.lng
               }
 
-              this.saveLoc(locationObject);
-              this.usersNearMe(nearMeObject);
+              const locationObject = {
+                  userEmail: this.user.email,
+                  coordinates: nearMeObject
+              }
 
+              this.saveLoc(locationObject);
+
+              // display on angular
               geocoder.geocode( { 'location': request },
                  (results, status) => {
 
@@ -103,6 +107,8 @@ export class ProfileViewComponent implements OnInit {
                         window.alert('Geocoder failed due to: ' + status);
                     }
                });
+
+
           });
         }
     };
@@ -112,8 +118,14 @@ export class ProfileViewComponent implements OnInit {
     this.locateuser.saveLoc(request);
  }
 
- usersNearMe(nearMeObject) {
-     this.locateuser.usersNearMe(nearMeObject);
+ usersNearMe() {
+     navigator.geolocation.getCurrentPosition( pos => {
+        const nearMeObject = {
+             latitude: pos.coords.latitude,
+             longitude: pos.coords.longitude
+         }
+        this.locateuser.usersNearMe(nearMeObject).subscribe(res => this.matchedUsers = res.json());
+     });
  }
 
   logOut() {

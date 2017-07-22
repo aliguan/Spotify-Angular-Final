@@ -17,6 +17,6 @@ export class LocatingUserService {
   }
 
   usersNearMe(coordinates) {
-      this.http.post(`${this.BASE_URL}/distance`, coordinates).subscribe((res) => console.log(res));
+     return this.http.post(`${this.BASE_URL}/distance`, coordinates).map(res => res);
   }
 }
