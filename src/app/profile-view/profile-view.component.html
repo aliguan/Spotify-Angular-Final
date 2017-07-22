@@ -11,7 +11,7 @@
 <br>
 <br>
 
-<button (click)="usersNearMe()">Near Me</button>
+<button *ngIf="city" (click)="usersNearMe()">Near Me</button>
 
 <br>
 <br>
@@ -22,10 +22,13 @@
     </ul>
 </div>
 
-<div *ngIf="city">
+<div *ngIf="city; else loading">
     <p>Location: {{ city }}, {{ state }}</p>
 </div>
 
+<ng-template #loading>
+    <img style="width: 75px" src="https://s-media-cache-ak0.pinimg.com/originals/c7/2d/11/c72d11a3d65ca0231b338984bc59e89d.gif">
+</ng-template>
 
 
 <div *ngIf="tracks">

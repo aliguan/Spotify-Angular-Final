@@ -59,30 +59,16 @@ export class ProfileViewComponent implements OnInit {
             );
       }
   }
-
   getUserLoc() {
       const geocoder = new google.maps.Geocoder();
       if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition( pos => {
-              // request to geocoder for Google maps
 
+              // request to geocoder for Google maps
               const request = {
                   lat: pos.coords.latitude,
                   lng: pos.coords.longitude
               }
-
-              // Request sent to use in GeoLib calculations
-              const nearMeObject = {
-                  latitude: request.lat,
-                  longitude: request.lng
-              }
-
-              const locationObject = {
-                  userEmail: this.user.email,
-                  coordinates: nearMeObject
-              }
-
-              this.saveLoc(locationObject);
 
               // display on angular
               geocoder.geocode( { 'location': request },
@@ -108,6 +94,34 @@ export class ProfileViewComponent implements OnInit {
                     }
                });
 
+
+          });
+      }
+      this.saveUserLoc();
+  }
+
+  saveUserLoc() {
+      const geocoder = new google.maps.Geocoder();
+      if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition( pos => {
+              // request to geocoder for Google maps
+              const request = {
+                  lat: pos.coords.latitude,
+                  lng: pos.coords.longitude
+              }
+
+              // Request sent to use in GeoLib calculations
+              const nearMeObject = {
+                  latitude: request.lat,
+                  longitude: request.lng
+              }
+
+              const locationObject = {
+                  userEmail: this.user.email,
+                  coordinates: nearMeObject
+              }
+
+              this.saveLoc(locationObject);
 
           });
         }
