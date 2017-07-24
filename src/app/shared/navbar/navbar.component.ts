@@ -2,6 +2,8 @@ import { Component, OnInit, Renderer, ViewChild, ElementRef } from '@angular/cor
 import { ROUTES } from '../../sidebar/sidebar.component';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
+import { SpotifyAuthService } from '../../services/spotify-auth.service';
+import { LocatingUserService } from '../../services/locating-user.service';
 
 @Component({
     moduleId: module.id,
@@ -18,7 +20,13 @@ export class NavbarComponent implements OnInit{
 
     @ViewChild("navbar-cmp") button;
 
-    constructor(location:Location, private renderer : Renderer, private element : ElementRef) {
+    constructor(location: Location, private renderer: Renderer,
+        private element: ElementRef,
+        private spotifyauth: SpotifyAuthService,
+        private activatedRoute: ActivatedRoute,
+        private router: Router,
+        private locateuser: LocatingUserService) {
+
         this.location = location;
         this.nativeElement = element.nativeElement;
         this.sidebarVisible = false;
@@ -54,5 +62,10 @@ export class NavbarComponent implements OnInit{
             this.sidebarVisible = false;
             body.classList.remove('nav-open');
         }
+    }
+
+    logOut() {
+        this.spotifyauth.logout();
+        this.router.navigate(['/login']);
     }
 }

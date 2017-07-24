@@ -483,17 +483,17 @@ hr {
 .sidebar .logo p, .sidebar[data-background-color="white"] .logo p,
 .off-canvas-sidebar .logo p,
 .off-canvas-sidebar[data-background-color="white"] .logo p {
-  color: #66615B;
+  color: white;
 }
 .sidebar .logo .simple-text, .sidebar[data-background-color="white"] .logo .simple-text,
 .off-canvas-sidebar .logo .simple-text,
 .off-canvas-sidebar[data-background-color="white"] .logo .simple-text {
-  color: #66615B;
+  color: white;
 }
 .sidebar .nav li:not(.active) > a, .sidebar[data-background-color="white"] .nav li:not(.active) > a,
 .off-canvas-sidebar .nav li:not(.active) > a,
 .off-canvas-sidebar[data-background-color="white"] .nav li:not(.active) > a {
-  color: #66615B;
+  color: white;
 }
 .sidebar .nav .divider, .sidebar[data-background-color="white"] .nav .divider,
 .off-canvas-sidebar .nav .divider,
@@ -547,7 +547,7 @@ hr {
 }
 .sidebar[data-active-color="danger"] .nav li.active > a,
 .off-canvas-sidebar[data-active-color="danger"] .nav li.active > a {
-  color: #DD0330;
+  color: #2fd566;
   opacity: 1;
 }
 
