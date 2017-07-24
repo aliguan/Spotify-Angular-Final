@@ -4,6 +4,10 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { } from '@types/googlemaps';
+import { SidebarModule } from './sidebar/sidebar.module';
+import { FooterModule } from './shared/footer/footer.module';
+import { NavbarModule} from './shared/navbar/navbar.module';
+
 
 import { SpotifyAuthService } from './services/spotify-auth.service';
 import { LocatingUserService } from './services/locating-user.service';
@@ -27,6 +31,9 @@ import { CallbackComponent } from './callback/callback.component';
     FormsModule,
     RouterModule,
     AppRoutingModule,
+    SidebarModule,
+    FooterModule,
+    NavbarModule
   ],
   providers: [SpotifyAuthService, LocatingUserService ],
   bootstrap: [AppComponent]

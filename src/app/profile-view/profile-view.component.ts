@@ -4,8 +4,9 @@ import { LocatingUserService } from '../services/locating-user.service';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Headers } from '@angular/http';
 import { } from '@types/googlemaps';
+import * as Chartist from 'chartist';
 
-
+declare var $:any;
 @Component({
   selector: 'app-profile-view',
   templateUrl: './profile-view.component.html',
@@ -30,6 +31,7 @@ export class ProfileViewComponent implements OnInit {
       // Get User Tokens
       this.tokens = JSON.parse(localStorage.getItem('currentUser'));
       this.createUserandTracks();
+
   }
 
   createUserandTracks() {
