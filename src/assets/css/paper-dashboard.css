@@ -47,6 +47,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
 
 h1, .h1 {
   font-size: 3.2em;
+  color: #d6d6d6;
 }
 
 h2, .h2 {
@@ -342,7 +343,7 @@ hr {
   overflow: hidden;
   width: 260px;
   z-index: 4;
-  box-shadow: inset -1px 0px 0px 0px #DDDDDD;
+  /*box-shadow: inset -1px 0px 0px 0px #66615b;*/
 }
 .sidebar .sidebar-background {
   position: absolute;
@@ -418,25 +419,25 @@ hr {
 }
 .sidebar .nav li.active > a:before,
 .off-canvas-sidebar .nav li.active > a:before {
-  border-right: 17px solid #DDDDDD;
-  border-top: 17px solid transparent;
-  border-bottom: 17px solid transparent;
+  border-right: 23px solid #2e2e2e;
+  border-top: 23px solid transparent;
+  border-bottom: 23px solid transparent;
   content: "";
   display: inline-block;
   position: absolute;
   right: 0;
-  top: 8px;
+  top: 4px;
 }
 .sidebar .nav li.active > a:after,
 .off-canvas-sidebar .nav li.active > a:after {
-  border-right: 17px solid #f4f3ef;
-  border-top: 17px solid transparent;
-  border-bottom: 17px solid transparent;
+  border-right: 23px solid #2e2e2e;
+  border-top: 23px solid transparent;
+  border-bottom: 23px solid transparent;
   content: "";
   display: inline-block;
   position: absolute;
   right: -1px;
-  top: 8px;
+  top: 4px;
 }
 .sidebar .nav p,
 .off-canvas-sidebar .nav p {
@@ -552,7 +553,7 @@ hr {
 }
 
 .main-panel {
-  background-color: #f4f3ef;
+  background-color: #2e2e2e /* #f4f3ef */;
   position: relative;
   z-index: 2;
   float: right;
@@ -1644,14 +1645,14 @@ textarea.form-control {
 }
 
 .navbar-default {
-  background-color: #f4f3ef;
-  border-bottom: 1px solid #DDDDDD;
+  background-color: #212120;
+  /*border-bottom: 1px solid #DDDDDD;*/
 }
 .navbar-default .brand {
   color: #66615b !important;
 }
 .navbar-default .navbar-nav > li > a:not(.btn) {
-  color: #9A9A9A;
+  color: white;
 }
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:not(.btn):hover,
@@ -2071,10 +2072,10 @@ Copyright (c) 2015 Daniel Eden
 }
 
 .card {
-  border-radius: 6px;
-  box-shadow: 0 2px 2px rgba(204, 197, 185, 0.5);
-  background-color: #FFFFFF;
-  color: #252422;
+  /*border-radius: 6px;*/
+  /*box-shadow: 0 2px 2px rgba(204, 197, 185, 0.5);*/
+  background-color: #212120;
+  color: #d6d6d6;
   margin-bottom: 20px;
   position: relative;
   z-index: 1;

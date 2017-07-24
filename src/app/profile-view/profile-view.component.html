@@ -9,7 +9,7 @@
 <br>
 <br>
 
-<button *ngIf="city; else loading" (click)="usersNearMe()">Near Me</button>
+<button *ngIf="city" (click)="usersNearMe()">Near Me</button>
 
 <br>
 <br>
@@ -20,13 +20,13 @@
     </ul>
 </div>
 
-<div *ngIf="city; else loading">
+<div *ngIf="city">
     <p>Location: {{ city }}, {{ state }}</p>
 </div>
 
-<ng-template #loading>
+<!-- <ng-template #loading>
     <img style="width: 75px" src="https://s-media-cache-ak0.pinimg.com/originals/c7/2d/11/c72d11a3d65ca0231b338984bc59e89d.gif">
-</ng-template>
+</ng-template> -->
 
 
 <div class="container-fluid">
