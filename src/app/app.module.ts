@@ -17,6 +17,7 @@ import { SpotifyLoginComponent } from './spotify-login/spotify-login.component';
 import { ProfileViewComponent } from './profile-view/profile-view.component';
 import { AppRoutingModule } from './app.routing.module';
 import { CallbackComponent } from './callback/callback.component';
+import { LocateUserComponent } from './locate-user/locate-user.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { CallbackComponent } from './callback/callback.component';
     SpotifyLoginComponent,
     ProfileViewComponent,
     CallbackComponent,
+    LocateUserComponent,
   ],
   imports: [
     BrowserModule,

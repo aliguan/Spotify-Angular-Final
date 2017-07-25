@@ -1,22 +1,4 @@
-<button (click)="getUserLoc()">Find My Location</button>
-
-<br>
-<br>
-
-<button *ngIf="city" (click)="usersNearMe()">Near Me</button>
-
-<br>
-<br>
-
-<div *ngIf="matchedUsers">
-    <ul  *ngFor="let user of matchedUsers" >
-        <li><a href="https://open.spotify.com/user/{{ user.id }}">{{ user.display_name }}</a></li>
-    </ul>
-</div>
-
-<div *ngIf="city">
-    <p>Location: {{ city }}, {{ state }}</p>
-</div>
+<app-locate-user [user]='user' [tokens]='tokens'></app-locate-user>
 
 <!-- <ng-template #loading>
     <img style="width: 75px" src="https://s-media-cache-ak0.pinimg.com/originals/c7/2d/11/c72d11a3d65ca0231b338984bc59e89d.gif">
