@@ -44,7 +44,7 @@ export class ProfileViewComponent implements OnInit {
           this.spotifyauth.getSavedTracks(this.tokens.access_token)
             .subscribe(res => {
                     const arrayofArtists = [];
-
+                    console.log(res);
                     this.tracks = res.items;
                     this.tracks.forEach((track) => {
                         arrayofArtists.push(track.track.artists[0].name);
