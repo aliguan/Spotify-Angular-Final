@@ -64,10 +64,10 @@ export class NavbarComponent implements OnInit{
         var toggleButton = this.toggleButton;
         var body = document.getElementsByTagName('body')[0];
 
-        if(this.sidebarVisible == false){
+        if (this.sidebarVisible == false) {
             setTimeout(function(){
                 toggleButton.classList.add('toggled');
-            },500);
+            }, 500);
             body.classList.add('nav-open');
             this.sidebarVisible = true;
         } else {
