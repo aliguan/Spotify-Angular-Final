@@ -11,8 +11,8 @@ import { } from '@types/googlemaps';
   styleUrls: ['./locate-user.component.css']
 })
 export class LocateUserComponent implements OnInit {
-    @Input() user;
-    @Input() tokens;
+    private user;
+    private tokens;
     private city;
     private state;
     private google: any;
@@ -24,6 +24,13 @@ export class LocateUserComponent implements OnInit {
         private locateuser: LocatingUserService) { }
 
     ngOnInit() {
+        this.tokens = JSON.parse(localStorage.getItem('currentUser'));
+        if (this.tokens) {
+            this.spotifyauth.getUser(this.tokens.access_token)
+              .subscribe(res => {
+                  this.user = res;
+             } );
+        }
     }
 
     getUserLoc() {

@@ -5,6 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { SpotifyLoginComponent } from './spotify-login/spotify-login.component';
 import { ProfileViewComponent } from './profile-view/profile-view.component';
 import { CallbackComponent } from './callback/callback.component';
+import { LocateUserComponent } from './locate-user/locate-user.component';
 
 const routes: Routes = [
   {
@@ -15,6 +16,9 @@ const routes: Routes = [
   },
   {
     path: 'dashboard', component: ProfileViewComponent
+  },
+  {
+    path: 'location', component: LocateUserComponent
   }
 ];
 
