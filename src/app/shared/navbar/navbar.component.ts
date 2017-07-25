@@ -1,4 +1,4 @@
-import { Component, OnInit, Renderer, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, Renderer, ViewChild, ElementRef, Input } from '@angular/core';
 import { ROUTES } from '../../sidebar/sidebar.component';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
@@ -17,6 +17,8 @@ export class NavbarComponent implements OnInit{
     private nativeElement: Node;
     private toggleButton;
     private sidebarVisible: boolean;
+    private tokens;
+    private user;
 
     @ViewChild("navbar-cmp") button;
 
@@ -33,10 +35,21 @@ export class NavbarComponent implements OnInit{
     }
 
     ngOnInit(){
+        this.tokens = JSON.parse(localStorage.getItem('currentUser'));
         this.listTitles = ROUTES.filter(listTitle => listTitle);
         var navbar : HTMLElement = this.element.nativeElement;
         this.toggleButton = navbar.getElementsByClassName('navbar-toggle')[0];
+        this.getUser();
     }
+    getUser() {
+        if (this.tokens) {
+            this.spotifyauth.getUser(this.tokens.access_token)
+              .subscribe(res => {
+                  this.user = res;
+              } );
+          }
+    }
+
     getTitle(){
         var titlee = window.location.pathname;
         titlee = titlee.substring(1);

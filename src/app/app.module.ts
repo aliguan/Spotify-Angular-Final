@@ -23,7 +23,7 @@ import { CallbackComponent } from './callback/callback.component';
     AppComponent,
     SpotifyLoginComponent,
     ProfileViewComponent,
-    CallbackComponent
+    CallbackComponent,
   ],
   imports: [
     BrowserModule,

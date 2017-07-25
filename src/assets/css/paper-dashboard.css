@@ -47,7 +47,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
 
 h1, .h1 {
   font-size: 3.2em;
-  color: #d6d6d6;
+  color: white;
 }
 
 h2, .h2 {
@@ -335,6 +335,7 @@ hr {
   z-index: 1;
   background-size: cover;
   background-position: center center;
+
 }
 .sidebar .sidebar-wrapper {
   position: relative;
@@ -419,7 +420,7 @@ hr {
 }
 .sidebar .nav li.active > a:before,
 .off-canvas-sidebar .nav li.active > a:before {
-  border-right: 23px solid #2e2e2e;
+  border-right: 23px solid #22272d;
   border-top: 23px solid transparent;
   border-bottom: 23px solid transparent;
   content: "";
@@ -430,7 +431,7 @@ hr {
 }
 .sidebar .nav li.active > a:after,
 .off-canvas-sidebar .nav li.active > a:after {
-  border-right: 23px solid #2e2e2e;
+  border-right: 23px solid #22272d;
   border-top: 23px solid transparent;
   border-bottom: 23px solid transparent;
   content: "";
@@ -504,7 +505,7 @@ hr {
 .sidebar[data-background-color="black"]:after, .sidebar[data-background-color="black"]:before,
 .off-canvas-sidebar[data-background-color="black"]:after,
 .off-canvas-sidebar[data-background-color="black"]:before {
-  background-color: #212120;
+  background-color: #22272d;
 }
 .sidebar[data-background-color="black"] .logo,
 .off-canvas-sidebar[data-background-color="black"] .logo {
@@ -553,12 +554,13 @@ hr {
 }
 
 .main-panel {
-  background-color: #2e2e2e /* #f4f3ef */;
+  background-color: #22272d;  /* #2e2e2e #f4f3ef */;
   position: relative;
   z-index: 2;
   float: right;
   width: calc(100% - 260px);
   min-height: 100%;
+  /*background: url('/assets/img/mainpanelbg.jpg') no-repeat center center fixed;*/
 }
 .main-panel > .content {
   padding: 30px 15px;
@@ -1645,7 +1647,7 @@ textarea.form-control {
 }
 
 .navbar-default {
-  background-color: #212120;
+  background-color: #22272d;
   /*border-bottom: 1px solid #DDDDDD;*/
 }
 .navbar-default .brand {
@@ -1661,7 +1663,7 @@ textarea.form-control {
 .navbar-default .navbar-nav > li > a:not(.btn):focus {
   background-color: transparent;
   border-radius: 3px;
-  color: #68B3C8;
+  color: #2fd566;
   opacity: 1;
   filter: alpha(opacity=100);
 }
@@ -2074,8 +2076,8 @@ Copyright (c) 2015 Daniel Eden
 .card {
   /*border-radius: 6px;*/
   /*box-shadow: 0 2px 2px rgba(204, 197, 185, 0.5);*/
-  background-color: #212120;
-  color: #d6d6d6;
+  background-color: #2a343d;
+  color: white;
   margin-bottom: 20px;
   position: relative;
   z-index: 1;
@@ -2124,8 +2126,8 @@ Copyright (c) 2015 Daniel Eden
 }
 .card .title {
   margin: 0;
-  color: #252422;
-  font-weight: 300;
+  color: white;
+  font-weight: 700;
 }
 .card .avatar {
   width: 50px;
@@ -2146,7 +2148,7 @@ Copyright (c) 2015 Daniel Eden
   margin-bottom: 5px;
 }
 .card .stats {
-  color: #a9a9a9;
+  color: white;
   font-weight: 300;
 }
 .card .stats i {
@@ -3767,7 +3769,7 @@ Copyright (c) 2015 Daniel Eden
 }
 
 .fixed-plugin .badge-black {
-  background-color: #212120;
+  background-color: #22272d;
 }
 
 .fixed-plugin .badge-primary {

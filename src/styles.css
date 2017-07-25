@@ -1,8 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 .sidebar-wrapper {
-    background-color: #212120;
+    background-color: #1c2023;
 }
 /*
 .main-panel {
     background-color: #282828
 }*/
+.navbar {
+    margin-bottom: 0;
+}
