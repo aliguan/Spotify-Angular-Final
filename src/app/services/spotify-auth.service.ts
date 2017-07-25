@@ -42,14 +42,11 @@ export class SpotifyAuthService {
         .map(res => res.json());
   }
 
-  getSavedTracks(token) {
-    const arrayoftracks = [];
+  getSavedTracks(token, apiUrl) {
     const headers = new Headers();
     headers.append('Authorization', 'Bearer ' + token);
-    for ( let i = 0; i < 101; i += 50 ) {
-        return this.http.get( `https://api.spotify.com/v1/me/tracks?offset=${i}&limit=50`, { headers: headers })
-            .map(res => res.json() );
-        }
+    return this.http.get( apiUrl , { headers: headers })
+        .map(res => res.json() );
 
    }
 

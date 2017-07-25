@@ -4,6 +4,7 @@ import { LocatingUserService } from '../services/locating-user.service';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Headers } from '@angular/http';
 import { } from '@types/googlemaps';
+import { Http, Response } from '@angular/http';
 
 declare var $: any;
 
@@ -19,10 +20,14 @@ export class ProfileViewComponent implements OnInit {
   private google: any;
   private matchedUsers;
 
+  private apiUrl = `https://api.spotify.com/v1/me/tracks?offset=0&limit=50`;
+
+
   constructor( private spotifyauth: SpotifyAuthService,
       private activatedRoute: ActivatedRoute,
       private router: Router,
-      private locateuser: LocatingUserService) { }
+      private locateuser: LocatingUserService,
+      private http: Http) { }
 
 
   ngOnInit() {
@@ -41,22 +46,44 @@ export class ProfileViewComponent implements OnInit {
                 this.spotifyauth.createUser(res);
             } );
 
-          this.spotifyauth.getSavedTracks(this.tokens.access_token)
-            .subscribe(res => {
-                    const arrayofArtists = [];
-                    console.log(res);
-                    this.tracks = res.items;
-                    this.tracks.forEach((track) => {
-                        arrayofArtists.push(track.track.artists[0].name);
+      this.readUserTracks();
 
-                    });
-                    const trackObject = {
-                        userEmail: this.user.email,
-                        artistNames: arrayofArtists,
-                    }
-                    this.spotifyauth.pushTracks(trackObject);
-                }
-            );
       }
   }
+
+  apiCall( token, nextUrl ) {
+     return this.spotifyauth.getSavedTracks(this.tokens.access_token, nextUrl);
+  }
+
+  readUserTracks() {
+        this.spotifyauth.getSavedTracks(this.tokens.access_token, this.apiUrl)
+                  .subscribe(res => {
+                      const arrayofArtists = [];
+                      if (res) {
+                          for ( let i = 0; i <= res.total; i += 50 ) {
+                            const loopUrl = `https://api.spotify.com/v1/me/tracks?offset=${i}&limit=50`;
+                            this.apiCall(this.tokens.access_token, loopUrl)
+                                .toPromise()
+                                .then( response =>  { if ( response !== null ) {
+                                    this.tracks = response.items;
+                                    this.tracks.forEach((track) => {
+                                        arrayofArtists.push(track.track.artists[0].name);
+                                    });
+                                        if ( arrayofArtists.length === res.total ) {
+                                            const trackObject = {
+                                                userEmail: this.user.email,
+                                                artistNames: arrayofArtists.sort(),
+                                            }
+                                            this.spotifyauth.pushTracks(trackObject);
+                                        }
+                                    }
+                                });
+                            }
+                        }
+
+                  }
+
+           );
+
+    }
 }
