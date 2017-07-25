@@ -5,7 +5,6 @@ import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { } from '@types/googlemaps';
 import { SidebarModule } from './sidebar/sidebar.module';
-import { FooterModule } from './shared/footer/footer.module';
 import { NavbarModule} from './shared/navbar/navbar.module';
 
 
@@ -34,7 +33,6 @@ import { LocateUserComponent } from './locate-user/locate-user.component';
     RouterModule,
     AppRoutingModule,
     SidebarModule,
-    FooterModule,
     NavbarModule
   ],
   providers: [SpotifyAuthService, LocatingUserService ],
