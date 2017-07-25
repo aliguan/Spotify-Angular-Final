@@ -9,3 +9,17 @@
 .navbar {
     margin-bottom: 0;
 }
+
+.navbar-default .navbar-brand {
+    color: white;
+    font-size: 22px;
+    margin-left: 10px;
+}
+
+.navbar-brand span {
+    margin-right: 8px;
+}
+
+.navbar {
+    min-height: 125px;
+}
