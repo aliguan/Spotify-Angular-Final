@@ -52,7 +52,6 @@ export class SpotifyAuthService {
 
 
   pushTracks(trackObject) {
-      console.log(trackObject);
       this.http.post(`${this.BASE_URL}/userTracks`, trackObject).subscribe();
   }
 

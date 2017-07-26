@@ -113,7 +113,7 @@ export class LocateUserComponent implements OnInit {
                latitude: pos.coords.latitude,
                longitude: pos.coords.longitude
            }
-          this.locateuser.usersNearMe(nearMeObject).subscribe(res => this.matchedUsers = res.json());
+          this.locateuser.usersNearMe(nearMeObject).subscribe(res => { console.log(res.json()); this.matchedUsers = res.json() });
        });
    }
 
