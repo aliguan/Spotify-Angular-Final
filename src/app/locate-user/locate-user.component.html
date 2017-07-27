@@ -9,14 +9,16 @@
 <br>
 <br>
 
-<button *ngIf="city" (click)="usersNearMe()">Near Me</button>
+<button *ngIf="city" (click)="saveUserLoc()">Near Me</button>
 
 <br>
 <br>
 
 <div *ngIf="matchedUsers">
     <ul  *ngFor="let user of matchedUsers" >
-        <li><a href="https://open.spotify.com/user/{{ user.id }}">{{ user.display_name }}</a></li>
+        <li>
+            <!-- <a href="https://open.spotify.com/user/{{ user.id }}"></a> -->
+                {{ user.user }}</li>
     </ul>
 </div>
 

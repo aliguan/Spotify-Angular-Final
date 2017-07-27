@@ -34,18 +34,19 @@ export class LocateUserComponent implements OnInit {
     }
 
     getUserLoc() {
+
         const geocoder = new google.maps.Geocoder();
         if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition( pos => {
 
+            navigator.geolocation.getCurrentPosition( pos => {
                 // request to geocoder for Google maps
                 const request = {
                     lat: pos.coords.latitude,
                     lng: pos.coords.longitude
                 }
-
                 // display on angular
                 geocoder.geocode( { 'location': request },
+
                    (results, status) => {
 
                       if ( status === google.maps.GeocoderStatus.OK ) {
@@ -69,14 +70,19 @@ export class LocateUserComponent implements OnInit {
                  });
 
 
-            });
+            }, this.errorCallback, {timeout: 20000});
         }
-        this.saveUserLoc();
+    }
+
+    errorCallback(error) {
+        console.log(error);
     }
 
     saveUserLoc() {
+
         const geocoder = new google.maps.Geocoder();
         if (navigator.geolocation) {
+
             navigator.geolocation.getCurrentPosition( pos => {
                 // request to geocoder for Google maps
                 const request = {
@@ -86,17 +92,21 @@ export class LocateUserComponent implements OnInit {
 
                 // Request sent to use in GeoLib calculations
                 const nearMeObject = {
+                    userEmail: this.user.email,
                     latitude: request.lat,
                     longitude: request.lng
                 }
 
                 const locationObject = {
                     userEmail: this.user.email,
-                    coordinates: nearMeObject
+                    coordinates: {
+                        latitude: request.lat,
+                        longitude: request.lng
+                    }
                 }
 
                 this.saveLoc(locationObject);
-
+                this.locateuser.usersNearMe(nearMeObject).subscribe(res => this.matchedUsers = res );
             });
           }
       };
@@ -113,8 +123,9 @@ export class LocateUserComponent implements OnInit {
                latitude: pos.coords.latitude,
                longitude: pos.coords.longitude
            }
-          this.locateuser.usersNearMe(nearMeObject).subscribe(res => { console.log(res.json()); this.matchedUsers = res.json() });
+
        });
+
    }
 
 }
