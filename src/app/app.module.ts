@@ -10,6 +10,7 @@ import { NavbarModule} from './shared/navbar/navbar.module';
 
 import { SpotifyAuthService } from './services/spotify-auth.service';
 import { LocatingUserService } from './services/locating-user.service';
+import { AuthGuardService } from './services/auth-guard.service';
 
 import { AppComponent } from './app.component';
 import { SpotifyLoginComponent } from './spotify-login/spotify-login.component';
@@ -35,7 +36,7 @@ import { LocateUserComponent } from './locate-user/locate-user.component';
     SidebarModule,
     NavbarModule
   ],
-  providers: [SpotifyAuthService, LocatingUserService ],
+  providers: [SpotifyAuthService, LocatingUserService, AuthGuardService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

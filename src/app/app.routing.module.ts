@@ -6,6 +6,7 @@ import { SpotifyLoginComponent } from './spotify-login/spotify-login.component';
 import { ProfileViewComponent } from './profile-view/profile-view.component';
 import { CallbackComponent } from './callback/callback.component';
 import { LocateUserComponent } from './locate-user/locate-user.component';
+import { AuthGuardService } from './services/auth-guard.service';
 
 const routes: Routes = [
   {
@@ -15,11 +16,17 @@ const routes: Routes = [
     path: 'callback', component: CallbackComponent
   },
   {
-    path: 'dashboard', component: ProfileViewComponent
+    path: 'dashboard', component: ProfileViewComponent, canActivate: [AuthGuardService]
   },
   {
-    path: 'location', component: LocateUserComponent
-  }
+    path: 'location', component: LocateUserComponent, canActivate: [AuthGuardService]
+  },
+  {
+    path: '',   redirectTo: '/login', pathMatch: 'full'
+  },
+  {
+    path: '**',   redirectTo: '/login', pathMatch: 'full'
+  },
 ];
 
 @NgModule({
