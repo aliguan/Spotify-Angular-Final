@@ -116,16 +116,4 @@ export class LocateUserComponent implements OnInit {
       this.locateuser.saveLoc(request);
    }
 
-   usersNearMe() {
-       navigator.geolocation.getCurrentPosition( pos => {
-          const nearMeObject = {
-               userEmail: this.user.email,
-               latitude: pos.coords.latitude,
-               longitude: pos.coords.longitude
-           }
-
-       });
-
-   }
-
 }

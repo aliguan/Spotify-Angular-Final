@@ -13,7 +13,6 @@ export class LocatingUserService {
   constructor( private http: Http ) { }
 
   saveLoc(coordinates) {
-      console.log(coordinates);
       this.http.post(`${this.BASE_URL}/location`, coordinates).subscribe();
   }
 
