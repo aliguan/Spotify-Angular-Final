@@ -19,4 +19,9 @@ export class LocatingUserService {
   usersNearMe(coordinates) {
      return this.http.post(`${this.BASE_URL}/distance`, coordinates).map(res => res);
   }
+
+  getMatches(user) {
+      console.log(user.email);
+      return this.http.get(`${this.BASE_URL}/getMatchedUsers`, user).map(res => res.json());
+  }
 }

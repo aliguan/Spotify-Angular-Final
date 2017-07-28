@@ -116,4 +116,8 @@ export class LocateUserComponent implements OnInit {
       this.locateuser.saveLoc(request);
    }
 
+   getMatches() {
+       this.locateuser.getMatches(this.user).subscribe(res => console.log(res));
+   }
+
 }

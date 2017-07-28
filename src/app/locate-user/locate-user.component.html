@@ -2,14 +2,14 @@
     <input>
 </form>
 <div class="icon-container">
-     <span class="icon-name"> <a (click)="getUserLoc()">Find My Location</a></span>
+     <span class="icon-name"> <a (click)="getUserLoc(); saveUserLoc()">Find My Location</a></span>
      <span class="ti-location-pin"></span>
 
 </div>
 <br>
 <br>
 
-<button *ngIf="city" (click)="saveUserLoc()">Near Me</button>
+<button (click)="getMatches()">Near Me</button>
 
 <br>
 <br>
