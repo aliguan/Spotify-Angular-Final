@@ -11,6 +11,7 @@ import { NavbarModule} from './shared/navbar/navbar.module';
 import { SpotifyAuthService } from './services/spotify-auth.service';
 import { LocatingUserService } from './services/locating-user.service';
 import { AuthGuardService } from './services/auth-guard.service';
+import { UserResolveService } from './services/user-resolve.service';
 
 import { AppComponent } from './app.component';
 import { SpotifyLoginComponent } from './spotify-login/spotify-login.component';
@@ -18,6 +19,7 @@ import { ProfileViewComponent } from './profile-view/profile-view.component';
 import { AppRoutingModule } from './app.routing.module';
 import { CallbackComponent } from './callback/callback.component';
 import { LocateUserComponent } from './locate-user/locate-user.component';
+
 
 @NgModule({
   declarations: [
@@ -36,7 +38,7 @@ import { LocateUserComponent } from './locate-user/locate-user.component';
     SidebarModule,
     NavbarModule
   ],
-  providers: [SpotifyAuthService, LocatingUserService, AuthGuardService ],
+  providers: [SpotifyAuthService, LocatingUserService, AuthGuardService, UserResolveService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

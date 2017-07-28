@@ -8,7 +8,8 @@ import { LocatingUserService } from '../../services/locating-user.service';
 @Component({
     moduleId: module.id,
     selector: 'navbar-cmp',
-    templateUrl: 'navbar.component.html'
+    templateUrl: 'navbar.component.html',
+    styleUrls: ['./navbar.component.css']
 })
 
 export class NavbarComponent implements OnInit{
@@ -79,6 +80,6 @@ export class NavbarComponent implements OnInit{
 
     logOut() {
         this.spotifyauth.logout();
-        this.router.navigate(['/login']);
+        this.router.navigate(['/']);
     }
 }

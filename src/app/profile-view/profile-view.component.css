@@ -1,0 +1,41 @@
+.container-fluid {
+    background-color: #f4f3ef
+}
+
+.loading {
+    background-color: #189cc6;
+}
+
+.userName {
+    text-align: center;
+    width: 100%;
+}
+
+.userName h3 {
+    color: #189cc6;
+    text-align: center;
+    width: 90%;
+    margin: auto;
+}
+
+.navbar-brand {
+    text-align: center;
+}
+
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+
+h5 {
+    color: 	#0E1717;
+    font-weight: 700;
+}
+
+.locateMe {
+    margin-top: 250px;
+}

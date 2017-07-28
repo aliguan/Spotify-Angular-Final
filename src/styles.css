@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 .sidebar-wrapper {
-    background-color: #1c2023;
+    background-color: #189cc6;
 }
 /*
 .main-panel {
@@ -12,7 +12,7 @@
 
 .navbar-default .navbar-brand {
     color: white;
-    font-size: 22px;
+    font-size: 16px;
     margin-left: 10px;
 }
 
@@ -20,6 +20,6 @@
     margin-right: 8px;
 }
 
-.navbar {
-    min-height: 125px;
+.main-panel {
+    background-color: #f4f3ef;
 }

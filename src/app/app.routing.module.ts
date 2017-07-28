@@ -7,6 +7,7 @@ import { ProfileViewComponent } from './profile-view/profile-view.component';
 import { CallbackComponent } from './callback/callback.component';
 import { LocateUserComponent } from './locate-user/locate-user.component';
 import { AuthGuardService } from './services/auth-guard.service';
+import { UserResolveService } from './services/user-resolve.service';
 
 const routes: Routes = [
   {
@@ -16,7 +17,11 @@ const routes: Routes = [
     path: 'callback', component: CallbackComponent
   },
   {
-    path: 'dashboard', component: ProfileViewComponent, canActivate: [AuthGuardService]
+    path: 'dashboard', component: ProfileViewComponent,
+    canActivate: [AuthGuardService],
+    resolve: {
+        user: UserResolveService
+    }
   },
   {
     path: 'location', component: LocateUserComponent, canActivate: [AuthGuardService]

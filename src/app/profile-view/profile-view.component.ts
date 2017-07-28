@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
 import { SpotifyAuthService } from '../services/spotify-auth.service';
 import { LocatingUserService } from '../services/locating-user.service';
 import { Router, ActivatedRoute, Params } from '@angular/router';
@@ -74,7 +74,7 @@ export class ProfileViewComponent implements OnInit {
                                                 userEmail: this.user.email,
                                                 artistNames: arrayofArtists.sort(),
                                             }
-                                            this.spotifyauth.pushTracks(trackObject);
+                                            this.spotifyauth.pushTracks(trackObject).subscribe(res => this.tracks = res);
                                         }
                                     }
                                 });
