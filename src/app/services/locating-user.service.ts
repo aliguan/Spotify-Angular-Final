@@ -21,7 +21,6 @@ export class LocatingUserService {
   }
 
   getMatches(user) {
-      console.log(user.email);
-      return this.http.get(`${this.BASE_URL}/getMatchedUsers`, user).map(res => res.json());
+      return this.http.post(`${this.BASE_URL}/getMatchedUsers`, user).map(res => res.json());
   }
 }
