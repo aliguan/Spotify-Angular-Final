@@ -1,27 +1,114 @@
-<form>
-    <input>
-</form>
-<div class="icon-container">
-     <span class="icon-name"> <a (click)="getUserLoc(); saveUserLoc()">Find My Location</a></span>
-     <span class="ti-location-pin"></span>
+<div style="margin-top: 100px; margin-left: 20px;" class="container-fluid">
+    <div class="row">
+        <div class="col-lg-4 col-md-5">
+            <div class="card">
+                <div class="header">
+                    <h4 class="title">Match!</h4>
+                </div>
+                <div class="content">
+                    <div class="clearfix" style="width: 70%; margin: auto;">
+                        <div class="clearfix icon-container">
+                             <p> <a style="cursor:pointer; font-size: 23px; " (click)="getUserLoc(); saveUserLoc(); clicked()">Use My Location<span style="color: orange; margin-top: -10px" class="ti-location-pin"></span></a></p>
+                                <p style="margin-left: -20px; font-size:13px; text-align: center; "> Allow SpotiFriend to use your location to find users around you</p>
+                             <div style="text-align:center" *ngIf="city; else loading">
+                                 <p style=" margin-left: -20px;" >Location: {{ city }}, {{ state }}</p>
+                             </div>
+                             <div class="locgif" *ngIf="hidden == false" #loading>
+                                <img src="/assets/img/location.gif">
+                             </div>
+                        </div>
+                    </div>
 
-</div>
-<br>
-<br>
+                    <div class="clearfix"></div>
 
-<button (click)="getMatches()">Near Me</button>
+                    <div class="findmebutton">
+                        <button class="btn btn-info btn-fill btn-wd" (click)="getMatches()">Find Near Me</button>
+                    </div>
 
-<br>
-<br>
+                    <div class="clearfix"></div>
 
-<!-- <div *ngIf="matchedUsers">
-    <ul  *ngFor="let user of matchedUsers" >
-        <li> -->
-            <!-- <a href="https://open.spotify.com/user/{{ user.id }}"></a> -->
-                <!-- {{ user.user }}</li>
-    </ul>
-</div> -->
+                    <!-- <div *ngIf="matchedUsers">
+                        <ul  *ngFor="let user of matchedUsers" >
+                            <li> -->
+                                <!-- <a href="https://open.spotify.com/user/{{ user.id }}"></a> -->
+                                    <!-- {{ user.user }}</li>
+                        </ul>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-8 col-md-7">
+            <!-- <div class="card card-user">
+                <div class="content">
+                    <div class="author">
+                      <img class="avatar border-white" src="assets/img/faces/face-2.jpg" alt="..."/>
+                      <h4 class="title">Chet Faker<br />
+                         <a href="#"><small>@chetfaker</small></a>
+                      </h4>
+                    </div>
+                    <p class="description text-center">
+                        "I like the way you work it <br>
+                        No diggity <br>
+                        I wanna bag it up"
+                    </p>
+                </div>
+                <hr>
+                <div class="text-center">
+                    <div class="row">
+                        <div class="col-md-3 col-md-offset-1">
+                            <h5>12<br /><small>Followers</small></h5>
+                        </div>
+                        <div class="col-md-4">
+                            <h5>234<br /><small>Concerts</small></h5>
+                        </div>
+                        <div class="col-md-3">
+                            <h5>123<br /><small>Likes</small></h5>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+            <div class="card">
+                <div class="header">
+                    <h4 class="title">Matched Users</h4>
+                    <small>Users matched to you within a 25 mile radius of your location.</small>
+                </div>
+                <div *ngIf="matchedUsers" class="content">
+                    <ul *ngFor="let user of matchedUsers" class="list-unstyled team-members">
+                        <li>
+                            <div class="row">
+                                <div *ngIf="user[0].images.length == 0" class="col-xs-3">
+                                    <div  class="avatar">
+                                        <img src="assets/img/faces/face-0.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
+                                    </div>
+                                </div>
+                                <div *ngIf="user[0].images.length > 0" class="col-xs-3">
+                                    <div class="avatar">
+                                        <img src="{{user[0].images[0].url}}" alt="Circle Image" class="img-circle img-no-padding img-responsive">
+                                    </div>
+                                </div>
+                                <div *ngIf="!user[0].display_name" class="col-xs-6">
+                                    <p>{{user[0].id}}</p>
+                                </div>
+                                <div class="col-xs-6">
+                                    <p>{{user[0].display_name}}</p>
 
-<div *ngIf="city">
-    <p>Location: {{ city }}, {{ state }}</p>
+                                    <span class="text-muted"><small>Offline</small></span>
+                                </div>
+
+
+
+
+                                <div class="col-xs-3 text-right">
+                                    <button class="btn btn-sm btn-success btn-icon"><i class="fa fa-envelope"></i></button>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
 </div>

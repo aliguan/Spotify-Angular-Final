@@ -17,6 +17,7 @@ export class LocateUserComponent implements OnInit {
     private state;
     private google: any;
     private matchedUsers;
+    private hidden: boolean;
 
     constructor( private spotifyauth: SpotifyAuthService,
         private activatedRoute: ActivatedRoute,
@@ -24,6 +25,7 @@ export class LocateUserComponent implements OnInit {
         private locateuser: LocatingUserService) { }
 
     ngOnInit() {
+        this.hidden = true;
         this.tokens = JSON.parse(localStorage.getItem('currentUser'));
         if (this.tokens) {
             this.spotifyauth.getUser(this.tokens.access_token)
@@ -106,7 +108,7 @@ export class LocateUserComponent implements OnInit {
                 }
 
                 this.saveLoc(locationObject);
-                this.locateuser.usersNearMe(nearMeObject).subscribe(res => this.matchedUsers = res );
+                this.locateuser.usersNearMe(nearMeObject).subscribe(res => console.log(res) );
             });
           }
       };
@@ -117,7 +119,11 @@ export class LocateUserComponent implements OnInit {
    }
 
    getMatches() {
-       this.locateuser.getMatches(this.user).subscribe(res => console.log(res));
+       this.locateuser.getMatches(this.user).subscribe(res => { console.log(res); this.matchedUsers = res } );
+   }
+
+   clicked() {
+       this.hidden = false;
    }
 
 }

@@ -549,7 +549,7 @@ hr {
 }
 .sidebar[data-active-color="danger"] .nav li.active > a,
 .off-canvas-sidebar[data-active-color="danger"] .nav li.active > a {
-  color: white;
+  color: #ffa782;
   opacity: 1;
 }
 
@@ -2099,7 +2099,7 @@ Copyright (c) 2015 Daniel Eden
   padding: 15px 15px 10px 15px;
 }
 .card .header {
-  padding: 20px 20px 0;
+  padding: 20px 20px 20px;
 }
 .card .description {
   font-size: 16px;
@@ -2126,7 +2126,7 @@ Copyright (c) 2015 Daniel Eden
 }
 .card .title {
   margin: 0;
-  color: white;
+  color: #403D39;
   font-weight: 700;
 }
 .card .avatar {

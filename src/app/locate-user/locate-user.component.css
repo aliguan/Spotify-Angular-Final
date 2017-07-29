@@ -1,0 +1,13 @@
+.findmebutton {
+    text-align: center;
+    padding: 20px;
+}
+
+.locgif {
+    text-align: center;
+}
+
+.locgif img {
+    width: 200px;
+    margin-left: -40px;
+}
