@@ -10,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent implements OnInit {
   title = 'SpotiFriend';
 
-  private loggedIn: boolean;
+  public loggedIn: boolean;
 
   ngOnInit() {
       if (localStorage.getItem('currentUser') === null ) {

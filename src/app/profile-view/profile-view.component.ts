@@ -14,11 +14,11 @@ declare var $: any;
   styleUrls: ['./profile-view.component.css'],
 })
 export class ProfileViewComponent implements OnInit {
-  private tokens;
-  private user;
-  private tracks;
-  private google: any;
-  private matchedUsers;
+  public tokens;
+  public user;
+  public tracks;
+  public google: any;
+  public matchedUsers;
 
   private apiUrl = `https://api.spotify.com/v1/me/tracks?offset=0&limit=50`;
 

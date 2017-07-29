@@ -10,10 +10,10 @@
                         <div class="clearfix icon-container">
                              <p> <a style="cursor:pointer; font-size: 23px; " (click)="getUserLoc(); saveUserLoc(); clicked()">Use My Location<span style="color: orange; margin-top: -10px" class="ti-location-pin"></span></a></p>
                                 <p style="margin-left: -20px; font-size:13px; text-align: center; "> Allow SpotiFriend to use your location to find users around you</p>
-                             <div style="text-align:center" *ngIf="city; else loading">
+                             <div style="text-align:center" *ngIf="city">
                                  <p style=" margin-left: -20px;" >Location: {{ city }}, {{ state }}</p>
                              </div>
-                             <div class="locgif" *ngIf="hidden == false" #loading>
+                             <div class="locgif" *ngIf="hidden == false; !city">
                                 <img src="/assets/img/location.gif">
                              </div>
                         </div>

@@ -19,7 +19,7 @@ export class NavbarComponent implements OnInit{
     private toggleButton;
     private sidebarVisible: boolean;
     private tokens;
-    private user;
+    public user;
 
     @ViewChild("navbar-cmp") button;
 

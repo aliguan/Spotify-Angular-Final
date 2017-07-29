@@ -11,13 +11,13 @@ import { } from '@types/googlemaps';
   styleUrls: ['./locate-user.component.css']
 })
 export class LocateUserComponent implements OnInit {
-    private user;
-    private tokens;
-    private city;
-    private state;
+    public user;
+    public tokens;
+    public city;
+    public state;
     private google: any;
-    private matchedUsers;
-    private hidden: boolean;
+    public matchedUsers;
+    public hidden: boolean;
 
     constructor( private spotifyauth: SpotifyAuthService,
         private activatedRoute: ActivatedRoute,
