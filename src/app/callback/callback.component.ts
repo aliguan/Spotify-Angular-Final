@@ -20,7 +20,9 @@ export class CallbackComponent implements OnInit {
           const code = queryParams['code'];
           const state = queryParams['state'];
           this.spotifyauth.callback(code, state)
-            .subscribe(res => this.router.navigate(['/dashboard']);
+            .subscribe(res =>  {
+                console.log('magde it')
+                this.router.navigate(['/dashboard']);
             });
         })
   }

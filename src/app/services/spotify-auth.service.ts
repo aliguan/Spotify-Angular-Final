@@ -24,6 +24,7 @@ export class SpotifyAuthService {
   callback(code, state) {
     return this.http.get(`${this.BASE_URL}/callback`, {params: {code: code, state: state}})
         .map( (res) => {
+            console.log(res);
             this.tokens = res.json();
             if (this.tokens) {
                 localStorage.setItem('currentUser',  JSON.stringify(this.tokens) );
