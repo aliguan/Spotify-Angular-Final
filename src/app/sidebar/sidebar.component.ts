@@ -12,7 +12,7 @@ export interface RouteInfo {
 
 export const ROUTES: RouteInfo[] = [
     { path: 'dashboard', title: 'Dashboard',  icon: 'ti-panel', class: '' },
-    { path: 'location', title: 'Find Users',  icon: 'ti-user', class: '' },
+    { path: 'locate', title: 'Find Users',  icon: 'ti-user', class: '' },
     { path: 'user', title: 'User',  icon: 'ti-view-list-alt', class: '' },
 ]
 

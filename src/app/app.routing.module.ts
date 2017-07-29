@@ -18,13 +18,13 @@ const routes: Routes = [
   },
   {
     path: 'dashboard', component: ProfileViewComponent,
-    // canActivate: [AuthGuardService],
+    canActivate: [AuthGuardService],
     resolve: {
         user: UserResolveService
     }
   },
   {
-    path: 'location', component: LocateUserComponent, canActivate: [AuthGuardService]
+    path: 'locate', component: LocateUserComponent, canActivate: [AuthGuardService]
   },
   {
     path: '',   redirectTo: '/login', pathMatch: 'full'
