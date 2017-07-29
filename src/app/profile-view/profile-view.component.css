@@ -39,3 +39,12 @@ h5 {
 .locateMe {
     margin-top: 250px;
 }
+
+.header {
+    height: 230px;
+    overflow: hidden;
+}
+
+.hi {
+    padding: 10px;
+}

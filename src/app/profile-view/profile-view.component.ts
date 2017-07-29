@@ -85,4 +85,5 @@ export class ProfileViewComponent implements OnInit {
 
            );
     }
+
 }

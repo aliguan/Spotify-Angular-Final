@@ -18,7 +18,7 @@ const routes: Routes = [
   },
   {
     path: 'dashboard', component: ProfileViewComponent,
-    canActivate: [AuthGuardService],
+    // canActivate: [AuthGuardService],
     resolve: {
         user: UserResolveService
     }
