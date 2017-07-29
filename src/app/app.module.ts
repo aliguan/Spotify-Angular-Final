@@ -19,6 +19,7 @@ import { ProfileViewComponent } from './profile-view/profile-view.component';
 import { AppRoutingModule } from './app.routing.module';
 import { CallbackComponent } from './callback/callback.component';
 import { LocateUserComponent } from './locate-user/locate-user.component';
+import { UserComponent } from './user/user.component'
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { LocateUserComponent } from './locate-user/locate-user.component';
     ProfileViewComponent,
     CallbackComponent,
     LocateUserComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
