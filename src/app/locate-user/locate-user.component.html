@@ -21,7 +21,7 @@
 
                     <div class="clearfix"></div>
 
-                    <div class="findmebutton">
+                    <div *ngIf="city" class="findmebutton">
                         <button class="btn btn-info btn-fill btn-wd" (click)="getMatches()">Find Near Me</button>
                     </div>
 
@@ -76,23 +76,23 @@
                     <ul *ngFor="let user of matchedUsers" class="list-unstyled team-members">
                         <li>
                             <div class="row">
-                                <div *ngIf="user[0].images.length == 0" class="col-xs-3">
+                                <div *ngIf="user.user[0].images.length == 0" class="col-xs-3">
                                     <div  class="avatar">
                                         <img src="assets/img/faces/face-0.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
                                     </div>
                                 </div>
-                                <div *ngIf="user[0].images.length > 0" class="col-xs-3">
+                                <div *ngIf="user.user[0].images.length > 0" class="col-xs-3">
                                     <div class="avatar">
-                                        <img src="{{user[0].images[0].url}}" alt="Circle Image" class="img-circle img-no-padding img-responsive">
+                                        <img src="{{user.user[0].images[0].url}}" alt="Circle Image" class="img-circle img-no-padding img-responsive">
                                     </div>
                                 </div>
-                                <div *ngIf="!user[0].display_name" class="col-xs-6">
-                                    <p>{{user[0].id}}</p>
+                                <div *ngIf="!user.user[0].display_name" class="col-xs-6">
+                                    <p>{{user.user[0].id}}</p>
                                 </div>
                                 <div class="col-xs-6">
-                                    <p>{{user[0].display_name}}</p>
+                                    <p>{{user.user[0].display_name}}</p>
 
-                                    <span class="text-bold"><small>Percentage Matched:</small> {{user[0].matchedUsers[0].percentage}}%</span>
+                                    <span class="text-bold"><small>Percentage Matched:</small> {{ user.percentage }}</span>
                                 </div>
 
                                 <div class="col-xs-3 text-right">
