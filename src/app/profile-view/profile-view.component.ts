@@ -32,6 +32,7 @@ export class ProfileViewComponent implements OnInit {
 
   ngOnInit() {
       // Get User Tokens
+      location.reload();
       this.tokens = JSON.parse(localStorage.getItem('currentUser'));
       this.createUserandTracks();
 
