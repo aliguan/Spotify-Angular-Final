@@ -7,8 +7,8 @@ import 'rxjs/add/operator/toPromise';
 @Injectable()
 export class SpotifyAuthService {
   //
-  // BASE_URL: String = 'https://spotifriend.herokuapp.com';
-  BASE_URL: String = 'http://localhost:8888';
+  BASE_URL: String = 'https://spotifriend.herokuapp.com';
+  // BASE_URL: String = 'http://localhost:8888';
 
   public tokens;
 
@@ -18,14 +18,13 @@ export class SpotifyAuthService {
   }
 
  login() {
-      return this.http.get(`${this.BASE_URL}/login`)
+      return this.http.get(`${this.BASE_URL}/spotifylogin`)
         .map(res => res.json());
   }
 
   callback(code, state) {
-      return this.http.get(`${this.BASE_URL}/callback`, {params: {code: code, state: state}})
+      return this.http.get(`${this.BASE_URL}/callback2`, {params: {code: code, state: state}})
         .map( (res) => {
-            console.log('looook attt meee ' + res);
             this.tokens = res.json();
             if (this.tokens) {
                 localStorage.setItem('currentUser',  JSON.stringify(this.tokens) );
