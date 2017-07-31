@@ -6,7 +6,7 @@ import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class SpotifyAuthService {
-  
+  //
   BASE_URL: String = 'https://spotifriend.herokuapp.com';
   // BASE_URL: String = 'http://localhost:8888';
 

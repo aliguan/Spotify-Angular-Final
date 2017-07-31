@@ -37,14 +37,14 @@ export class ProfileViewComponent implements OnInit {
       this.createUserandTracks();
 
   }
-    reload() {
-        window.onload = function () {
-            if (! localStorage.justOnce) {
-                localStorage.setItem('justOnce', 'true');
-                window.location.reload();
-            }
+
+
+  reload() {
+        if (!localStorage.justOnce || localStorage.justOnce == undefined ) {
+            localStorage.setItem('justOnce', 'true');
+            location.reload();
+        }
     }
-}
 
   createUserandTracks() {
       // If there are tokens create user and get their saved Tracks
