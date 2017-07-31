@@ -79,6 +79,7 @@ export class NavbarComponent implements OnInit{
     }
 
     logOut() {
+        localStorage.setItem('justOnce', undefined);
         this.spotifyauth.logout();
         this.router.navigate(['/']);
     }

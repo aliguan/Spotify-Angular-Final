@@ -40,7 +40,7 @@ export class ProfileViewComponent implements OnInit {
 
 
   reload() {
-        if (!localStorage.justOnce || localStorage.justOnce == undefined ) {
+        if (!localStorage.justOnce || localStorage.justOnce === 'undefined' ) {
             localStorage.setItem('justOnce', 'true');
             location.reload();
         }
