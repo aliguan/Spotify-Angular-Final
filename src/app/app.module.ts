@@ -31,7 +31,6 @@ import { UserComponent } from './user/user.component';
     LocateUserComponent,
     UserComponent,
 
-
   ],
   imports: [
     BrowserModule,

@@ -83,7 +83,9 @@ export class ProfileViewComponent implements OnInit {
                                                 userEmail: this.user.email,
                                                 artistNames: arrayofArtists.sort(),
                                             }
-                                            this.spotifyauth.pushTracks(trackObject).subscribe(res => this.tracks = res);
+                                            this.spotifyauth.pushTracks(trackObject)
+                                            .toPromise()
+                                            .then(response => this.tracks = response);
                                         }
                                     }
                                 });

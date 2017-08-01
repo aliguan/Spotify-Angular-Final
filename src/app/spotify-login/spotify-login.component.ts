@@ -15,7 +15,9 @@ export class SpotifyLoginComponent implements OnInit {
 
   }
   getLoginString() {
-    this.spotifyauth.login().subscribe( (res) => { if (res) {
+    this.spotifyauth.login()
+    .subscribe(
+     (res) => { if (res) {
         this.loginUrl = res;
         window.location.href = this.loginUrl;
     }} );
