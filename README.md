@@ -1,6 +1,6 @@
 # Spotifyng
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.1.1.
+Find friends within a 25 mile raidus who share similar music tastes. Connect through SpotiFriend to go to concerts or just share music.
 
 ## Development server
 
