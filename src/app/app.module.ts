@@ -12,6 +12,7 @@ import { SpotifyAuthService } from './services/spotify-auth.service';
 import { LocatingUserService } from './services/locating-user.service';
 import { AuthGuardService } from './services/auth-guard.service';
 import { UserResolveService } from './services/user-resolve.service';
+import { ChatService } from './services/chat.service';
 
 import { AppComponent } from './app.component';
 import { SpotifyLoginComponent } from './spotify-login/spotify-login.component';
@@ -20,6 +21,7 @@ import { AppRoutingModule } from './app.routing.module';
 import { CallbackComponent } from './callback/callback.component';
 import { LocateUserComponent } from './locate-user/locate-user.component';
 import { UserComponent } from './user/user.component';
+import { ChatComponent } from './chat/chat.component';
 
 
 @NgModule({
@@ -30,6 +32,7 @@ import { UserComponent } from './user/user.component';
     CallbackComponent,
     LocateUserComponent,
     UserComponent,
+    ChatComponent,
 
   ],
   imports: [
@@ -41,7 +44,7 @@ import { UserComponent } from './user/user.component';
     SidebarModule,
     NavbarModule
   ],
-  providers: [SpotifyAuthService, LocatingUserService, AuthGuardService, UserResolveService ],
+  providers: [SpotifyAuthService, LocatingUserService, AuthGuardService, UserResolveService, ChatService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
