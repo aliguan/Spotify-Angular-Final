@@ -1,6 +1,40 @@
 
 <div class="container-fluid">
     <div class="row">
+        <div class="col-lg-4 col-md-5">
+            <div class="card card-user">
+                <div class="content">
+                    <div class="author">
+                      <img class="avatar border-white" src="assets/img/faces/face-2.jpg" alt="..."/>
+
+                      <h4 *ngIf="!user.display_name" class="title">{{user.id}}<br />
+                         <a href="https://open.spotify.com/user/{{user.id}}"><small>@{{user.id}}</small></a>
+                     </h4>
+                     <div *ngIf="user.display_name">
+                         <h4 class="title">{{user.display_name}}<br/>
+                            <a href="https://open.spotify.com/user/{{user.id}}"><small>@{{user.id}}</small></a>
+                         </h4>
+                     </div>
+                    </div>
+                    <hr>
+                    <div class="text-center">
+                        <div class="row">
+                            <div class="col-md-3 col-md-offset-1">
+                                <h5><br /><small>Friends</small></h5>
+                            </div>
+                            <div class="col-md-4">
+                                <h5>12<br /><small>Playlists</small></h5>
+                            </div>
+                            <div class="col-md-3">
+                                <h5>{{tracks?.length}}<br /><small>Artists Liked</small></h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+            </div>
+    </div>
+    <div class="row">
         <div style="margin-top: 40px;" class="col-md-offset-3 col-md-6">
             <div class="card">
                 <div class="hi">

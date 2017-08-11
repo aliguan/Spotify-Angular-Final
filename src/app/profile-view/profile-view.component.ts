@@ -85,7 +85,7 @@ export class ProfileViewComponent implements OnInit {
                                             }
                                             this.spotifyauth.pushTracks(trackObject)
                                             .toPromise()
-                                            .then(response => this.tracks = response);
+                                            .then(responsetracks => this.tracks = responsetracks);
                                         }
                                     }
                                 });
