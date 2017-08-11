@@ -31,4 +31,9 @@ export class LocatingUserService {
      }
      return this.http.post(`${this.BASE_URL}/addFriend`, stuff).map(res => res);
   }
+
+  getFriends(email) {
+     console.log(email)
+    return this.http.post(`${this.BASE_URL}/chat/getFriends`, { 'email': email} ).map(res => res.json());
+  }
 }

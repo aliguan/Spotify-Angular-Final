@@ -10,7 +10,7 @@
                       <h4 *ngIf="!user.display_name" class="title">{{user.id}}<br />
                          <a href="https://open.spotify.com/user/{{user.id}}"><small>@{{user.id}}</small></a>
                      </h4>
-                     <div *ngIf="user.display_name">
+                     <div *ngIf="user.display_name !== null">
                          <h4 class="title">{{user.display_name}}<br/>
                             <a href="https://open.spotify.com/user/{{user.id}}"><small>@{{user.id}}</small></a>
                          </h4>
@@ -20,10 +20,11 @@
                     <div class="text-center">
                         <div class="row">
                             <div class="col-md-3 col-md-offset-1">
-                                <h5><br /><small>Friends</small></h5>
+                                <h5>12<br /><small>Playlists</small></h5>
+
                             </div>
                             <div class="col-md-4">
-                                <h5>12<br /><small>Playlists</small></h5>
+                               <h5><br /><small>Friends</small></h5>
                             </div>
                             <div class="col-md-3">
                                 <h5>{{tracks?.length}}<br /><small>Artists Liked</small></h5>
@@ -34,6 +35,46 @@
                 <hr>
             </div>
     </div>
+    <div class="col-lg-8 col-md-7">
+        <div class="card">
+            <div class="header">
+                <h4 class="title">Friends</h4>
+                <small>Chat with friends to share music or link up to go to concerts.</small>
+            </div>
+            <button (click)="getFriends(user.email)"> FRIENDSSSS</button>
+            <div *ngIf="friends" class="content">
+                <ul *ngFor="let user of friends" class="list-unstyled team-members">
+                    <li>
+                        <div class="row">
+                            <div *ngIf="user.images.length == 0" class="col-xs-3">
+                                <div  class="avatar">
+                                    <img src="assets/img/faces/face-0.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
+                                </div>
+                            </div>
+                            <div *ngIf="user.images.length > 0" class="col-xs-3">
+                                <div class="avatar">
+                                    <img src="{{user.images[0].url}}" alt="Circle Image" class="img-circle img-no-padding img-responsive">
+                                </div>
+                            </div>
+                            <div *ngIf="!user.display_name" class="col-xs-6">
+                                <p>{{user.id}}</p>
+                            </div>
+                            <div class="col-xs-6">
+                                <p>{{user.display_name}}</p>
+
+                                <!-- <span class="text-bold"><small>Percentage Matched:</small> {{ user.percentage }}</span> -->
+                            </div>
+
+                            <div class="col-xs-3 text-right">
+                                <button  class="btn btn-sm btn-success btn-icon"><i class="fa fa-comments"></i></button>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
     <div class="row">
         <div style="margin-top: 40px;" class="col-md-offset-3 col-md-6">
             <div class="card">

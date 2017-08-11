@@ -19,6 +19,7 @@ export class ProfileViewComponent implements OnInit {
   public tracks;
   public google: any;
   public matchedUsers;
+  public friends;
 
   private apiUrl = `https://api.spotify.com/v1/me/tracks?offset=0&limit=50`;
 
@@ -56,7 +57,6 @@ export class ProfileViewComponent implements OnInit {
             } );
 
       this.readUserTracks();
-
       }
   }
 
@@ -96,5 +96,9 @@ export class ProfileViewComponent implements OnInit {
 
            );
     }
+
+  getFriends(email) {
+    this.locateuser.getFriends(email).subscribe(res => {console.log( res); this.friends = res});
+  }
 
 }
