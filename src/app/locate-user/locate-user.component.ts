@@ -127,7 +127,9 @@ export class LocateUserComponent implements OnInit {
    }
 
    addFriend(friendId) {
-       console.log(friendId);
-   }
+       this.locateuser.addFriend(friendId, this.user.email).subscribe(res => {
+          console.log('friend added');
+       });
+    }
 
 }

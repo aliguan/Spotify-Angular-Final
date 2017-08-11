@@ -24,9 +24,11 @@ export class LocatingUserService {
       return this.http.post(`${this.BASE_URL}/getMatchedUsers`, user).map(res => res.json());
   }
 
-  addFriend(friendId) {
-     this.http.post(`${this.BASE_URL}/addFriend`, friendId)
-        .toPromise()
-        .then(res => console.log('friend added'));
+  addFriend(friendId, currentUserEmail) {
+     const stuff = {
+        friendId: friendId,
+        userEmail: currentUserEmail
+     }
+     return this.http.post(`${this.BASE_URL}/addFriend`, stuff).map(res => res);
   }
 }
