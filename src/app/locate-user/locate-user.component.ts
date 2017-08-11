@@ -126,4 +126,8 @@ export class LocateUserComponent implements OnInit {
        this.hidden = false;
    }
 
+   addFriend(friendId) {
+       console.log(friendId);
+   }
+
 }
