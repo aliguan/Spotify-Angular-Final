@@ -39,7 +39,7 @@ export class ProfileViewComponent implements OnInit {
 
   }
 
-
+ // Force Angular to reload dashboard
   reload() {
         if (!localStorage.justOnce || localStorage.justOnce === 'undefined' ) {
             localStorage.setItem('justOnce', 'true');
@@ -65,6 +65,7 @@ export class ProfileViewComponent implements OnInit {
   }
 
   readUserTracks() {
+      // Iterate through all of User Tracks (50 at a time)
         this.spotifyauth.getSavedTracks(this.tokens.access_token, this.apiUrl)
                   .subscribe(res => {
                       const arrayofArtists = [];
