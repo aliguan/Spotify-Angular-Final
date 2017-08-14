@@ -15,7 +15,7 @@ export class LocatingUserService {
   saveLoc(coordinates) {
       this.http.post(`${this.BASE_URL}/location`, coordinates).subscribe();
   }
-
+  // Find users within a 25 mile radius
   usersNearMe(coordinates) {
      return this.http.post(`${this.BASE_URL}/distance`, coordinates).map(res => res);
   }
