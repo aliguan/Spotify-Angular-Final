@@ -46,6 +46,7 @@ export class LocateUserComponent implements OnInit {
                     lat: pos.coords.latitude,
                     lng: pos.coords.longitude
                 }
+
                 // display on angular
                 geocoder.geocode( { 'location': request },
 
@@ -108,7 +109,7 @@ export class LocateUserComponent implements OnInit {
                 }
 
                 this.saveLoc(locationObject);
-                this.locateuser.usersNearMe(nearMeObject).subscribe(res => console.log(res) );
+                this.locateuser.usersNearMe(nearMeObject).subscribe(res => res );
             });
           }
       };
