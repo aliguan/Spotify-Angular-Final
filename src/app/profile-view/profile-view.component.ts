@@ -36,7 +36,6 @@ export class ProfileViewComponent implements OnInit {
       this.reload();
       this.tokens = JSON.parse(localStorage.getItem('currentUser'));
       this.createUserandTracks();
-
   }
 
  // Force Angular to reload dashboard
@@ -99,7 +98,7 @@ export class ProfileViewComponent implements OnInit {
     }
 
   getFriends(email) {
-    this.locateuser.getFriends(email).subscribe(res => {console.log( res); this.friends = res});
+    this.locateuser.getFriends(email).subscribe(res => this.friends = res);
   }
 
 }

@@ -15,7 +15,7 @@ export class LocatingUserService {
   saveLoc(coordinates) {
       this.http.post(`${this.BASE_URL}/location`, coordinates).subscribe();
   }
-  // Find users within a 25 mile radius
+  // Find users within a 25 mile radiusatom
   usersNearMe(coordinates) {
      return this.http.post(`${this.BASE_URL}/distance`, coordinates).map(res => res);
   }
@@ -33,7 +33,7 @@ export class LocatingUserService {
   }
 
   getFriends(email) {
-     console.log(email)
+    //  console.log(email)
     return this.http.post(`${this.BASE_URL}/chat/getFriends`, { 'email': email} ).map(res => res.json());
   }
 }

@@ -7,7 +7,7 @@
                     <div class="author">
                       <img class="avatar border-white" src="assets/img/faces/face-2.jpg" alt="..."/>
 
-                      <h4 *ngIf="!user.display_name" class="title">{{user.id}}<br />
+                      <h4 *ngIf="!user" class="title">{{user.id}}<br />
                          <a href="https://open.spotify.com/user/{{user.id}}"><small>@{{user.id}}</small></a>
                      </h4>
                      <div *ngIf="user.display_name !== null">
@@ -41,7 +41,7 @@
                 <h4 class="title">Friends</h4>
                 <small>Chat with friends to share music or link up to go to concerts.</small>
             </div>
-            <button (click)="getFriends(user.email)"> FRIENDSSSS</button>
+            <!-- <button (click)="getFriends(user.email)"> FRIENDSSSS</button> -->
             <div *ngIf="friends" class="content">
                 <ul *ngFor="let user of friends" class="list-unstyled team-members">
                     <li>
@@ -75,7 +75,7 @@
         </div>
     </div>
 </div>
-    <div class="row">
+    <!-- <div class="row">
         <div style="margin-top: 40px;" class="col-md-offset-3 col-md-6">
             <div class="card">
                 <div class="hi">
@@ -125,5 +125,5 @@
                     </div>
                 </div>
         </div>
-    </div>
+    </div> -->
 </div>

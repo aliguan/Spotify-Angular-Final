@@ -51,7 +51,7 @@ export class SpotifyAuthService {
 
 
   pushTracks(trackObject) {
-      console.log(trackObject);
+    //   console.log(trackObject);
       return this.http.post(`${this.BASE_URL}/userTracks`, trackObject).map(res => res);
   }
 
