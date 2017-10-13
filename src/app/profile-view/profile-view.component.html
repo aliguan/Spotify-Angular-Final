@@ -7,7 +7,7 @@
                     <div class="author">
                       <img class="avatar border-white" src="assets/img/faces/face-2.jpg" alt="..."/>
 
-                      <h4 *ngIf="!user" class="title">{{user.id}}<br />
+                      <h4 *ngIf="!user.display_name" class="title">{{user.id}}<br />
                          <a href="https://open.spotify.com/user/{{user.id}}"><small>@{{user.id}}</small></a>
                      </h4>
                      <div *ngIf="user.display_name !== null">
@@ -37,11 +37,13 @@
     </div>
     <div class="col-lg-8 col-md-7">
         <div class="card">
-            <div class="header">
+            <div class="header" style="height: auto;">
                 <h4 class="title">Friends</h4>
-                <small>Chat with friends to share music or link up to go to concerts.</small>
+                <small>Chat with friends to share music or link up to go to concerts.</small><br>
+                <button class="btn friendsbtn" (click)="getFriends(user.email)"> Click to Show Friends</button>
+
             </div>
-            <!-- <button (click)="getFriends(user.email)"> FRIENDSSSS</button> -->
+
             <div *ngIf="friends" class="content">
                 <ul *ngFor="let user of friends" class="list-unstyled team-members">
                     <li>
@@ -59,7 +61,7 @@
                             <div *ngIf="!user.display_name" class="col-xs-6">
                                 <p>{{user.id}}</p>
                             </div>
-                            <div class="col-xs-6">
+                            <div *ngIf=" user.display_name" class="col-xs-6">
                                 <p>{{user.display_name}}</p>
 
                                 <!-- <span class="text-bold"><small>Percentage Matched:</small> {{ user.percentage }}</span> -->
