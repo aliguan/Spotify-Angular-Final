@@ -25,7 +25,8 @@ const routes: Routes = [
     }
   },
   {
-    path: 'user', component: UserComponent,
+    path: 'user', component: SpotifyLoginComponent,
+    // component: UserComponent,
     canActivate: [AuthGuardService],
     resolve: {
         user: UserResolveService
